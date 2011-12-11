@@ -9,7 +9,7 @@
 
 	<target name="changelog-create">
 		<echo>create changelog</echo>
-		<exec command="ls -l /tmp > ${build.dir}/changelog.xml" escape="false" checkreturn="true" />
+		<exec command="./external-tools/GitChangeLogManifier/example/itWorks.3.cli.php > ${build.dir}/changelog.xml" escape="false" checkreturn="true" />
 		<exec command="${web.browser} ${build.dir}/changelog.xml" escape="false" />
 	</target>
 

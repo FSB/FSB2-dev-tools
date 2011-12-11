@@ -14,8 +14,7 @@ To start using this see FSB official wiki or quickly :
 Edit user/build.properties with your own value
 
 	phing -f build.xml
-
-
+	phing -f build.xml changelog-create
 
 This package is release under GPLv3, more informations on doc/Licence.txt
 
