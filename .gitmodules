@@ -1,0 +1,3 @@
+[submodule "external-tools/GitChangeLogManifier"]
+	path = external-tools/GitChangeLogManifier
+	url = git@github.com:Grummfy/GitChangeLogManifier.git

@@ -1,0 +1,5 @@
+user/build.properties
+build/*
+!build/README
+src/*
+!src/README
