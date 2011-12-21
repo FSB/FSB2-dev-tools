@@ -1,21 +1,24 @@
 <?xml version="1.0"?>
-<project name="fsb-dev-tools" default="say-hello">
+<project name="fsb-dev-tools" default="help">
 	<property file="build.properties" />
 	<property file="user/build.properties" override="true" />
 
-	<target name="say-hello">
-		<echo>Hello you!</echo>
-	</target>
-
-	<target name="changelog-create">
-		<echo>create changelog</echo>
-		<exec command="./external-tools/GitChangeLogManifier/example/itWorks.3.cli.php > ${build.dir}/changelog.xml" escape="false" checkreturn="true" />
-		<exec command="${web.browser} ${build.dir}/changelog.xml" escape="false" />
-	</target>
-
+	<import file="${tools.dir}/changelog/build.xml" />
+	
 	<target name="release-create-update">
 		<echo>create xml update file for a new release</echo>
 		<echo>TODO : programms/cli_create_update.php 2.0.X 2.0.X+1 'path/2.0.x/' 'path/2.0.x+1/' > update.xml</echo>
+	</target>
+
+	<target name="help">
+		<echo>
+			changelog:
+				changelog-create : create the changelog
+				changelog-export : after create the previous changelog and eventually edited it, use this to export to txt, html and fsbcode format!
+		</echo>
+		<echo>
+			release-create-update : create the package to make update between 2 release
+		</echo>
 	</target>
 
 </project>
