@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<project name="fsb-dev-tools-changelog">
+	<target name="changelog-create">
+		<echo>create changelog</echo>
+		<exec command="${tools.dir}/changelog/changelog-forge.php --version=${version.last} --path='${fsb.repository.path}' > ${build.dir}/changelog_${version.new}.xml" escape="false" checkreturn="true" />
+		<exec command="${web.browser} ${build.dir}/changelog_${version.new}.xml" escape="false" />
+	</target>
+	<target name="changelog-export">
+		<echo>export changelog</echo>
+		<exec command="${tools.dir}/changelog/changelog-transform.php --xml='${build.dir}/changelog_${version.new}.xml' --type=all --export-dir=${build.dir}" escape="false" checkreturn="true" />
+		<exec command="${web.browser} ${build.dir}/" escape="false" />
+	</target>
+</project>
