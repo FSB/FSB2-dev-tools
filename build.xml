@@ -4,11 +4,8 @@
 	<property file="user/build.properties" override="true" />
 
 	<import file="${tools.dir}/changelog/build.xml" />
-	
-	<target name="release-create-update">
-		<echo>create xml update file for a new release</echo>
-		<echo>TODO : programms/cli_create_update.php 2.0.X 2.0.X+1 'path/2.0.x/' 'path/2.0.x+1/' > update.xml</echo>
-	</target>
+	<import file="${tools.dir}/package/build.xml" />
+	<import file="${tools.dir}/release/build.xml" />
 
 	<target name="help">
 		<echo>
@@ -17,8 +14,12 @@
 				changelog-export : after create the previous changelog and eventually edited it, use this to export to txt, html and fsbcode format!
 		</echo>
 		<echo>
-			release-create-update : create the package to make update between 2 release
+			release:
+				release-create-update : create the package to make update between 2 release
+		</echo>
+		<echo>
+			package:
+				package-create : create the package for a new release
 		</echo>
 	</target>
-
 </project>

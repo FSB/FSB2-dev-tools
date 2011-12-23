@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<project name="fsb-dev-tools-package">
+	<target name="package-create">
+		<echo>Create a new package</echo>
+		<mkdir dir="${build.dir}/fsb2_${version.new}/" />
+		<copy todir="${build.dir}/fsb2_${version.new}/" tstamp="true" overwrite="true">
+			<fileset dir="${fsb.repository.path}/">
+				<exclude name=".git*" />
+				<exclude name=".settings" />
+				<exclude name=".project" />
+				<include name="**" />
+			</fileset>
+		</copy>
+		<copy todir="${build.dir}/fsb2_${version.new}/install/" tstamp="true" overwrite="true">
+			<fileset dir="${fsb.converter.repository.path}/install/">
+				<exclude name=".git*" />
+				<exclude name=".settings" />
+				<exclude name=".project" />
+				<include name="**" />
+			</fileset>
+		</copy>
+		<zip destfile="${build.dir}/fsb2_${version.new}.zip" includeemptydirs="true">
+			<fileset dir="${build.dir}/fsb2_${version.new}/">
+				<include name="**" />
+			</fileset>
+		</zip>
+		<tar destfile="${build.dir}/fsb2_${version.new}.tar.gz" includeemptydirs="true" compression="gzip">
+			<fileset dir="${build.dir}/fsb2_${version.new}/">
+				<include name="**" />
+			</fileset>
+		</tar>
+		<tar destfile="${build.dir}/fsb2_${version.new}.tar.bz2" includeemptydirs="true" compression="bzip2">
+			<fileset dir="${build.dir}/fsb2_${version.new}/">
+				<include name="**" />
+			</fileset>
+		</tar>
+	</target>
+</project>
