@@ -19,7 +19,7 @@
 		</echo>
 		<echo>
 			package:
-				package-create : create the package for a new release
+				package-create : create the package for a new release, you can use "phing -Dversion.new=2.0.42 package-create" to create a 2.0.4 release
 		</echo>
 	</target>
 </project>

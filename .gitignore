@@ -4,3 +4,5 @@ build/*
 src/*
 !src/README
 .project
+.buildpath
+.settings
